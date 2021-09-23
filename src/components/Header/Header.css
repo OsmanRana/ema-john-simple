@@ -1,0 +1,21 @@
+.logo img {
+    margin-top: 20px;
+    width: 300px;
+}
+.nav {
+    margin-top: 15px;
+    background-color: black;
+}
+.nav a{
+    text-decoration: none;
+    margin-right: 20px;
+    color: white;
+    line-height: 50px;
+    font-size: large;
+    padding: 13px;
+}
+.nav a:hover {
+    background-color: lightgray;
+    color: black;
+    
+}
