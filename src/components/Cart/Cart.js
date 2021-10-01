@@ -1,0 +1,38 @@
+import React from 'react';
+import './Cart.css'
+
+const Cart =(props) => {
+//    console.log(props)
+  const {cart} = props;
+
+  let total = 0;
+  let shipping = 0;
+  for (const product of cart) {
+      total = total + product.price;
+      shipping = shipping + product.shipping;  
+  }
+
+  const totalBeforeTax = total + shipping;
+  const estimatedTax = totalBeforeTax * .10;
+  const orderTotal = totalBeforeTax + estimatedTax;
+
+   
+    return (
+        <div>
+            <div className = "cart-details">
+                    <h2>Order Summary</h2>
+                    <p>Items ordered: {props.cart.length}</p>
+                    <span className = "total-calculation">
+                        <p><small>Items: $ {total.toFixed(2)}</small></p>
+                        <p><small>Shipping & Handling: $ {shipping.toFixed(2)}</small></p>
+                        <p><small>Total before tax: $ {totalBeforeTax.toFixed(2)}</small></p>
+                        <p><small>Estimated Tax: $ {estimatedTax.toFixed(2)}</small></p>
+                        <h2>Order Total:$ {orderTotal.toFixed(2)}</h2>
+                    </span>
+                    <button className ="btn-regular">Review your order</button>
+                </div>
+        </div>
+    );
+};
+
+export default Cart;
