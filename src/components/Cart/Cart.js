@@ -6,7 +6,7 @@ const Cart = (props) => {
 
     const { cart } = props;
     
-    const history = useHistory();
+    
     let totalQuantity = 0;
     let total = 0;
     let shipping = 0;
@@ -24,9 +24,7 @@ const Cart = (props) => {
     const estimatedTax = totalBeforeTax * .10;
     const orderTotal = totalBeforeTax + estimatedTax;
 
-    const handleClick = () => {
-        history.push("/OrderReview");
-    }
+    
     return (
         <div>
             <div className="cart-details">
@@ -39,7 +37,7 @@ const Cart = (props) => {
                     <p><small>Estimated Tax: $ {estimatedTax.toFixed(2)}</small></p>
                     <h2>Order Total:$ {orderTotal.toFixed(2)}</h2>
                 </span>
-                <button onClick={handleClick} className="btn-regular">Review your order</button>
+                {props.children}
             </div>
         </div>
     );
